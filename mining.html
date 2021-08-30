@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ITB Coin- Mining</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+
+    <div id="pageloader" class="pageloader is-left-to-right is-theme"></div>
+    <div id="infraloader" class="infraloader is-active"></div>    
+    <div class="token-wrapper">
+        <!-- Landing page Hero -->
+        <section class="hero is-medium">
+            <div class="hero-head">
+    
+                <!-- Cloned navbar -->
+                <!-- Cloned navbar that comes in on scroll -->
+                <nav x-data="initNavbar()"  x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark" :class="{
+                        'is-active': scrolled,
+                        '': !scrolled
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="index.html" class="navbar-item">
+                                <img class="rotating" src="img/logo/krypton-gradient.svg" alt="">
+                                <span class="brand-name">ITB Coin</span>
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="mining.html">Mining</a>
+                                </div>
+                                <!-- Menu item -->
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap.html">Roadmap</a>
+                                </div>-->
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="blog.html">Explore</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="https://discord.gg/tEu678uB" target="_blank">
+                                        <img class="telegram" src="img/logo/telegram.svg" alt="">
+                                        Discord
+                                    </a>
+                                </div>
+                                <!-- Sign up -->
+                                <div class="navbar-item is-nav-link">
+                                    <a href="#" class="button k-button k-primary raised has-gradient slanted">
+                                        <span class="text">Get started</span>
+                                        <span class="front-gradient"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Cloned navbar -->
+                <!-- Static navbar -->
+                <!-- Static navbar -->
+                <nav x-data="initNavbar()" class="navbar is-light" :class="{
+                        'is-dark-mobile': mobileOpen,
+                        '': !mobileOpen
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="index.html" class="navbar-item">
+                                <img class="rotating" src="img/logo/krypton.svg" alt="">
+                                <span class="brand-name">ITB Coin</span>
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="navbarMenu" class="navbar-menu light-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="mining.html">Mining</a>
+                                </div>
+                                <!-- Menu item 
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap.html">Roadmap</a>
+                                </div>-->
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="blog.html">Explore</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="https://discord.gg/tEu678uB" target="_blank">
+                                        <img class="telegram" src="img/logo/telegram.svg" alt="">
+                                        Discord
+                                    </a>
+                                </div>
+                                <!-- Sign up -->
+                                <div class="navbar-item">
+                                    <a href="#" class="button k-button k-primary raised has-gradient slanted">
+                                        <span class="text">Get Started</span>
+                                        <span class="front-gradient"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Static navbar -->
+            </div>
+    
+            <div class="hero-body has-text-centered">
+                <div class="columns">
+                    <div class="column is-6 is-offset-3">
+                        <div class="token-image">
+                            <img src="img/illustrations/krypton-token.svg">
+                        </div>
+                        <h1 class="title is-2 is-light is-semibold is-spaced main-title">The ITB Pool</h1>
+                        <h2 class="subtitle is-5 is-light is-thin">
+                            Mine from low level CPU to higher level CPU's and earn rewards in stable coins and Tokens. 
+                        </h2>
+                        <!-- CTA -->
+                        <p>
+                            <a href="start" class="button k-button k-primary raised has-gradient is-fat is-bold">
+                                <span class="text">Coming Soon</span>
+                                <span class="front-gradient"></span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="section is-medium">
+            <div class="container">
+    
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+    
+                    <div class="columns is-vcentered">
+                        <!-- Feature content -->
+                        <div class="column is-5 is-offset-1">
+                            <div class="side-feature-content">
+    
+                                <h3 class="title is-4 is-light">Connect to ITB mining pool</h3>
+                                <div class="divider"></div>
+                                <p class="is-light">Mine to the ITB Pool using Xmrig as we run monero pool to provide opportunity to users with low end PC to high end to be able to mine and earn stable coin.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Feature image -->
+                        <div class="column is-7">
+                            <img class="side-feature" src="img/illustrations/krypton-token-network.svg" alt="">
+                        </div>
+                    </div>
+    
+                    <div class="columns is-vcentered">
+                        <!-- Feature image -->
+                        <div class="column is-7">
+                            <img class="side-feature" src="img/illustrations/token-stack.svg" alt="">
+                        </div>
+    
+                        <!-- Feature content -->
+                        <div class="column is-5">
+                            <div class="side-feature-content">
+    
+                                <h3 class="title is-4 is-light">Select your reward coin </h3>
+                                <div class="divider"></div>
+                                <p class="is-light">We take the risk so, you can enjoy the benifit. Mining crypto with a low power device can be challenging that the coin price may be not doing good when you reach the payout threshold. We introduce stable coin reward system so you will always get the same value for your POW.</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="columns is-vcentered">
+                        <!-- Feature content -->
+                        <div class="column is-5 is-offset-1">
+                            <div class="side-feature-content">
+    
+                                <h3 class="title is-4 is-light">Low threshold</h3>
+                                <div class="divider"></div>
+                                <p class="is-light">You can withdraw from the pool even at a low threshold than other pools in market.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Feature image -->
+                        <div class="column is-7">
+                            <img class="side-feature" src="img/illustrations/token-lock.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+    
+                </section>
+   <footer class="krypton-footer">
+        <div class="container">
+            <!-- Logo -->
+            <div class="footer-logo">
+                <a href="#">
+                    <img class="rotating" src="img/logo/krypton-gradient.svg" alt="">
+                    <div class="brand-name">ITB coin</div>
+                    <div class="brand-subtitle">Blockchain brought to another level</div>
+                </a>
+            </div>
+            
+            <!-- Columns -->
+            <div class="columns footer-columns is-vcentered">
+                <div class="column is-4">
+                    <!-- Links group -->
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#">Mining</a>
+                        </li>
+                        <li>
+                            <a href="#">Roadmap</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Newsletter -->
+                <div class="column is-4">
+                    <div class="subscribe-block">
+                        <form>
+                            <!-- Field -->
+                            <div class="control">
+                                <!-- Special input -->
+                                <input class="krypton-subscribe-input" type="email" name="email" placeholder="">
+                                <button class="subscribe-button">
+                                    <span>Subscribe</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Links group -->
+                <div class="column is-4">
+                    <ul class="footer-links">
+                        <
+    
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+    
+                        <li>
+                            <a href="#">Discord</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright -->
+			<p style="color:white;">
+			ITB-Coin Website by <a href="https://github.com/revoxhere">Ravindra "Rankrish" Krishnan</a> from <b>ITB team</b> 2021-2022
+			</p>
+            <p class="k-copyright">© 2021-2022 | ITB coin. All Rights Reserved</p>
+            <br>
+            <!-- Made by -->
+            <p class="coded-by">Powered by <a href="https://cssninja.io" target="_blank">Css Ninja</a></p>
+        </div>
+        
+        <!-- Absolute image -->
+        <img class="solar-system" src="img/bg/solar.svg" alt="">
+    </footer>    <!-- Back To Top Button -->
+    <div x-data="initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+        'visible': scrolled,
+        '': !scrolled
+    }"></a></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/bundle.js"></script>
+
+</body>
+
+</html>
