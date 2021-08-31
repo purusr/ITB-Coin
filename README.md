@@ -1,7 +1,8 @@
 # ITB-Coin
 Source of ITB-Coin website
-# LEAD DEVELOPERS AND FOUNDERS-Founder And Dev:
+# LEAD DEVELOPERS AND FOUNDERS
 
+# Founder And Dev:
 Shreyas-ITB (Shreyas-Dev-ITB)
 
 # Lead Devs:
